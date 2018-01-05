@@ -17,7 +17,7 @@ pipeline {
 	stage('Build'){
 	    steps {
 		echo "Building version 1.0.0.${env.BUILD_NUMBER}"
-    		bat "\"C:/Program Files (x86)/MSBuild/14.0/Bin/msbuild.exe\" SeleniumNUnitParam.sln /p:Confuguration=Debug /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
+    		bat "\"${tool 'MSBuild'}\" SeleniumNUnitParam.sln /m /target:clean,build /p:Confuguration=Debug /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
     	    }
     	}
 	stage('Tests'){
