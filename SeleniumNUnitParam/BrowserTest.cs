@@ -36,18 +36,17 @@ namespace SeleniumNUnitParam
 
         }
 
-        [Test]
-        public void NNMTest()
-        {
-            Driver.Navigate().GoToUrl("http://play.dzr.org.ua/game/index.prg");
+        // [Test]
+        // public void NNMTest()
+        // {
+        //    Driver.Navigate().GoToUrl("http://play.dzr.org.ua/game/index.prg");
             // Driver.FindElement(By.Name("username")).SendKeys("velvon");
             // Driver.FindElement(By.Name("password")).SendKeys("pantera");
             // Driver.FindElement(By.Name("login")).Submit();
             // System.Threading.Thread.Sleep(9000);
-            Assert.That(Driver.PageSource.Contains("DozoR"), Is.EqualTo(true),
-                                            "The text ShyRanger doest not exist");
-
-        }
+        //    Assert.That(Driver.PageSource.Contains("DozoR"), Is.EqualTo(true),
+        //                                    "The text DozoR doest not exist");
+        // }
 
 
     }
