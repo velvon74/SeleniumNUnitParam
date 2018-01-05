@@ -21,7 +21,7 @@ pipeline {
     	    }
     	}
 	stage('SonarQube test'){
-		echo '#####################!!! SONAR !!! ########################'
+		echo '#####################> SONAR ########################'
 		bat 'c:/sonarqube/scan/SonarQube.Scanner.MSBuild.exe begin /k:"SeleniumNUnit" /d:sonar.host.url="http://localhost:9000" /d:sonar.login="7ab26ba9f5504b9658ff16a2838ce9142726528c"'
 		bat "\"${tool 'MSBuild'}\" /t:Rebuild"
 	}
