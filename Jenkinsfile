@@ -20,6 +20,11 @@ pipeline {
     		bat "\"${tool 'MSBuild'}\" SeleniumNUnitParam.sln /m /target:clean,build /p:Confuguration=Debug /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
     	    }
     	}
+	stage('SonarQube test'){
+		echo '#####################!!! SONAR !!! ########################'
+		bat 'c:/sonarqube/scan/SonarQube.Scanner.MSBuild.exe begin /k:"SeleniumNUnit" /d:sonar.host.url="http://localhost:9000" /d:sonar.login="7ab26ba9f5504b9658ff16a2838ce9142726528c"'
+		bat "\"${tool 'MSBuild'}\" /t:Rebuild"
+	}
 	stage('Tests'){
 	    steps {
 		echo '######################> Running tests'
