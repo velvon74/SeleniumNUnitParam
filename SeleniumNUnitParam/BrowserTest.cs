@@ -10,21 +10,18 @@ namespace SeleniumNUnitParam
 {
     public class BrowserTest : Hooks
     {
-
-
-        [Test]
-        public void GoogleTest()
-        {
-            Driver.Navigate().GoToUrl("http://www.google.com");
+        // [Test]
+        // public void GoogleTest()
+        // {
+        //    Driver.Navigate().GoToUrl("http://www.google.com");
             // Driver.FindElement(By.Name("q")).SendKeys("Selenium");
-            Driver.FindElement(By.Id("lst-ib")).SendKeys("Selenium");
-            System.Threading.Thread.Sleep(9000);
-	    Driver.FindElement(By.Id("_fZl")).Click();
+        //    Driver.FindElement(By.Id("lst-ib")).SendKeys("Selenium");
+        //    System.Threading.Thread.Sleep(9000);
+	//    Driver.FindElement(By.Id("_fZl")).Click();
             // Driver.FindElement(By.Name("btnK")).Click();
-            Assert.That(Driver.PageSource.Contains("Selenium"), Is.EqualTo(true),
-                                            "The text selenium doest not exist");
-
-        }
+        //    Assert.That(Driver.PageSource.Contains("Selenium"), Is.EqualTo(true),
+        //                                    "The text selenium doest not exist");
+        // }
 
         [Test]
         public void ExecuteAutomationTest()
@@ -36,6 +33,19 @@ namespace SeleniumNUnitParam
             System.Threading.Thread.Sleep(2000);
             Assert.That(Driver.PageSource.Contains("Selenium"), Is.EqualTo(true),
                                             "The text selenium doest not exist");
+
+        }
+
+        [Test]
+        public void NNMTest()
+        {
+            Driver.Navigate().GoToUrl("http://nnm-club.name/forum/login.php");
+            Driver.FindElement(By.Name("username")).SendKeys("velvon");
+            Driver.FindElement(By.Name("password")).SendKeys("pantera");
+            Driver.FindElement(By.Name("login")).Submit();
+            System.Threading.Thread.Sleep(9000);
+            Assert.That(Driver.PageSource.Contains("ShyRanger"), Is.EqualTo(true),
+                                            "The text ShyRanger doest not exist");
 
         }
 
