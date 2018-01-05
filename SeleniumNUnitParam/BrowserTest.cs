@@ -16,9 +16,11 @@ namespace SeleniumNUnitParam
         public void GoogleTest()
         {
             Driver.Navigate().GoToUrl("http://www.google.com");
-            Driver.FindElement(By.Name("q")).SendKeys("Selenium");
+            // Driver.FindElement(By.Name("q")).SendKeys("Selenium");
+            Driver.findElement(By.id("lst-ib")).sendKeys("Selenium");
+	    Driver.findElement(By.id("_fZl")).click();
             System.Threading.Thread.Sleep(9000);
-            Driver.FindElement(By.Name("btnK")).Click();
+            // Driver.FindElement(By.Name("btnK")).Click();
             Assert.That(Driver.PageSource.Contains("Selenium"), Is.EqualTo(true),
                                             "The text selenium doest not exist");
 
@@ -31,7 +33,7 @@ namespace SeleniumNUnitParam
             Driver.FindElement(By.Name("UserName")).SendKeys("admin");
             Driver.FindElement(By.Name("Password")).SendKeys("admin");
             Driver.FindElement(By.Name("Login")).Submit();
-            System.Threading.Thread.Sleep(9000);
+            System.Threading.Thread.Sleep(2000);
             Assert.That(Driver.PageSource.Contains("Selenium"), Is.EqualTo(true),
                                             "The text selenium doest not exist");
 
