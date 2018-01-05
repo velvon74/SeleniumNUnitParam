@@ -22,6 +22,14 @@ namespace SeleniumNUnitParam
         //    Assert.That(Driver.PageSource.Contains("Selenium"), Is.EqualTo(true),
         //                                    "The text selenium doest not exist");
         // }
+        [Test]
+        public void GoogleTest()
+        {
+            Driver.Navigate().GoToUrl("http://executeautomation.com/demosite/Login.html");
+            System.Threading.Thread.Sleep(2000);
+            Assert.That(Driver.PageSource.Contains("Selenium"), Is.EqualTo(true),
+                                            "The text selenium doest not exist");
+        }
 
         [Test]
         public void ExecuteAutomationTest()
