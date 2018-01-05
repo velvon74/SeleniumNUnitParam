@@ -23,7 +23,7 @@ pipeline {
 	stage('SonarQube test'){
 	    steps {
 		echo '#####################> SONAR ########################'
-		bat 'c:/sonarqube/scan/SonarQube.Scanner.MSBuild.exe begin /k:"org.sonarqube:sonarqube-scanner-msbuild" /k:"SeleniumNUnit" /d:sonar.host.url="http://localhost:9000" /d:sonar.login="7ab26ba9f5504b9658ff16a2838ce9142726528c"'
+		bat 'c:/sonarqube/scan/SonarQube.Scanner.MSBuild.exe begin /k:"org.sonarqube:sonarqube-scanner-msbuild" /n:"SeleniumNUnit" /d:sonar.host.url="http://localhost:9000" /d:sonar.login="7ab26ba9f5504b9658ff16a2838ce9142726528c"'
 		bat "\"${tool 'MSBuild'}\" /t:Rebuild"
 		bat "c:/sonarqube/scan/SonarQube.Scanner.MSBuild.exe end"
             }
