@@ -9,7 +9,7 @@ pipeline {
 	    steps {
 		echo '######################> Downloading code from repo'
     		git 'https://github.com/velvon74/SeleniumNUnitParam.git'
-    		echo "Building ${env.TAG_NAME} from ${env.BRANCH_NAME}"
+    		echo "######################> Building ${env.TAG_NAME} from ${env.BRANCH_NAME}"
     	    }
     	}
 	stage('Restore NuGet') {
