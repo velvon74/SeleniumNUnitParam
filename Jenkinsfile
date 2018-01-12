@@ -24,8 +24,13 @@ pipeline {
 	stage('Tests'){
 	    steps {
 		echo '######################> Running tests'
-    		bat 'c:/tools/nunit-console/nunit3-console.exe SeleniumNUnitParam\\bin\\Debug\\SeleniumNUnitParam.dll'
-    	    }
+    		bat 'c:/tools/nunit-console/nunit3-console.exe SeleniumNUnitParam\\bin\\Debug\\SeleniumNUnitParam.dll' 
+   	    }
     	}
+	stage ('Print Data'){
+	    steps {
+	        echo "######################> Ok!"
+	    }
+	}
     }
 }
