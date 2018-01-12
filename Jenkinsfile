@@ -41,7 +41,9 @@ pipeline {
 	stage('Print Data'){
 	    steps {
 	        echo "######################> Ok!"
-		bat 'set > env.txt' 
+		bat 'set > env.txt'
+		stdout = bat(returnStdout: true, script: 'set')
+                println("stdout ################ " + stdout + " ####################")
 	    }
 	}
     }
