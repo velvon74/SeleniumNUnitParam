@@ -42,7 +42,7 @@ pipeline {
 	    steps {
 	        echo "######################> Ok!"
 		bat 'set > env.txt'
-		stdout = bat(returnStdout: true, script: 'set')
+		def stdout = bat(returnStdout: true, script: 'set').trim()
                 println("stdout ################ " + stdout + " ####################")
 	    }
 	}
