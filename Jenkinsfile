@@ -44,7 +44,6 @@ pipeline {
 	    }
 	    steps {
 	        echo "######################> Ok!"
-		bat 'set > env.txt'
                 println("stdout ################ " + stdout + " ####################")
 	    }
 	}
