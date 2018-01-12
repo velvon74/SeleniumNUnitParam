@@ -42,9 +42,6 @@ pipeline {
 	    steps {
 	        echo "######################> Ok!"
 		bat 'set > env.txt' 
-		for (String i : readFile('env.txt').split("\r?\n")) {
-     			println i
-		}
 	    }
 	}
     }
