@@ -38,7 +38,7 @@ pipeline {
     		bat 'c:/tools/nunit-console/nunit3-console.exe SeleniumNUnitParam\\bin\\Debug\\SeleniumNUnitParam.dll' 
    	    }
     	}
-	stage ('Print Data'){
+	stage('Print Data'){
 	    steps {
 	        echo "######################> Ok!"
 		bat 'set > env.txt' 
