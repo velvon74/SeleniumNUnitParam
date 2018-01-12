@@ -39,11 +39,13 @@ pipeline {
    	    }
     	}
 	stage('Print Data'){
+	    environment {
+		def stdout = bat(returnStdout: true, script: 'set').trim()
+	    }
 	    steps {
 	        echo "######################> Ok!"
 		bat 'set > env.txt'
-		def stdout = bat(returnStdout: true, script: 'set').trim()
-                println("stdout ################ " + stdout + " ####################")
+                # println("stdout ################ " + stdout + " ####################")
 	    }
 	}
     }
