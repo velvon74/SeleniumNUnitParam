@@ -9,6 +9,7 @@ pipeline {
 	    steps {
 		echo '######################> Downloading code from repo'
     		git 'https://github.com/velvon74/SeleniumNUnitParam.git'
+    		echo "Building ${env.TAG_NAME} from ${env.BRANCH_NAME}"
     	    }
     	}
 	stage('Restore NuGet') {
@@ -34,8 +35,17 @@ pipeline {
 	stage('Tests'){
 	    steps {
 		echo '######################> Running tests'
-    		bat 'c:/tools/nunit-console/nunit3-console.exe SeleniumNUnitParam\\bin\\Debug\\SeleniumNUnitParam.dll'
-    	    }
+    		bat 'c:/tools/nunit-console/nunit3-console.exe SeleniumNUnitParam\\bin\\Debug\\SeleniumNUnitParam.dll' 
+   	    }
     	}
+	stage ('Print Data'){
+	    steps {
+	        echo "######################> Ok!"
+		bat 'set > env.txt' 
+		for (String i : readFile('env.txt').split("\r?\n")) {
+     			println i
+		}
+	    }
+	}
     }
 }
